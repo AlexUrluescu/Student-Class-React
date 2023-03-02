@@ -1,0 +1,26 @@
+[
+    {
+        "name": "Alex",
+        "last_name": "Urluescu",
+        "age": 19,
+        "city": "Sibiu"
+    },
+    {
+        "name": "Radu",
+        "last_name": "Popescu",
+        "age": 29,
+        "city": "Valcea"
+    },
+    {
+        "name": "Maria",
+        "last_name": "Larisa",
+        "age": 17,
+        "city": "Arad"
+    },
+    {
+        "name": "Carla",
+        "last_name": "Muntean",
+        "age": 21,
+        "city": "Cluj"
+    }
+]

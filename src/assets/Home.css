@@ -1,0 +1,14 @@
+
+
+.container-test{
+    background-color: greenyellow;
+    transition: all .4s;
+}
+
+.clicked{
+    background-color: gold;
+    /* transform: translateY(50px); */
+    height: 100px;
+
+    transition: all .4s;
+}
