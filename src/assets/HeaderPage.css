@@ -1,0 +1,22 @@
+
+
+.container{
+    background-color: gainsboro;
+
+    display: flex;
+}
+
+.title-container{
+    background-color: plum;
+    width: 60%;
+}
+
+.photos-container{
+    background-color: greenyellow;
+    width: 40%;
+}
+
+.photos-container img{
+    width: 100%;
+    height: 500px;
+}
