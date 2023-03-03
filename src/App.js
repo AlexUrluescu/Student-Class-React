@@ -37,6 +37,7 @@ const db = [
 function App() {
 
   const [students, setStudents] = useState(db)
+  const [edit, setEdit] = useState(null)
 
   const salutare = () => {
     console.log("Salutare");
@@ -49,15 +50,21 @@ function App() {
     console.log("Student adaugat");
   }
 
+  const editStudent = (editStudent) => {
+
+    setStudents(students.map((student) => student.id === editStudent.id ? editStudent : student))
+    console.log(`Ai editat studentul cu id-ul ${editStudent.id}`);
+  }
+
   return (
     <div className="App">
       <NavBar />
       <Routes>
         <Route path="/" element={<Home/>} />
         <Route path="/about" element={<About/>}>
-            <Route path="/about" element={<Table students={students} salutare={salutare}/>}/>
+            <Route path="/about" element={<Table students={students} salutare={salutare} setEdit={setEdit}/>}/>
             <Route path="/about/add" element={<FormStudents salutare={salutare} addStudent={addStudent}/>} />
-            <Route path="/about/edit/:id" element={<FormStudents salutare={salutare}/>}/>
+            <Route path="/about/edit/:id" element={<FormStudents salutare={salutare} setEdit={setEdit} edit={edit} editStudent={editStudent}/>}/>
         </Route>
       </Routes>
 

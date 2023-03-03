@@ -1,9 +1,11 @@
 
-import { Link } from "react-router-dom"
+import { Link} from "react-router-dom"
+import TableRow from "./TableRow";
 
-const Table = () => {
+const Table = ({salutare, students, setEdit}) => {
     return(
         <div>
+            <Link to="/about/add">Add student</Link>
             <table>
                 <thead>
                     <tr>
@@ -15,13 +17,9 @@ const Table = () => {
                     </tr>
                 </thead>
                 <tbody>
-                    <tr>
-                        <td>Urluescu</td>
-                        <td>Alexandre</td>
-                        <td>19</td>
-                        <td>Sibiu</td>
-                        <td><button><Link to="/about/edit">Edit</Link></button> <button>Delete</button></td>
-                    </tr>
+                    {students.map((student, index) => (
+                        <TableRow key={index} student={student} salutare={salutare} setEdit={setEdit}/>
+                    ))}
                 </tbody>
             </table>
         </div>
