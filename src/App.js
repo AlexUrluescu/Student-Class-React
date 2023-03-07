@@ -44,16 +44,23 @@ function App() {
   }
 
   const addStudent = (student) => {
+
+    console.log("se executa addStudent");
+    // console.log(student);
+
     student.id = Date.now()
+    // console.log(student);
+
     setStudents([...students, student])
 
-    console.log("Student adaugat");
+    // console.log(students);
   }
 
-  const editStudent = (editStudent) => {
 
-    setStudents(students.map((student) => student.id === editStudent.id ? editStudent : student))
-    console.log(`Ai editat studentul cu id-ul ${editStudent.id}`);
+  const editStudent = (e_Student) => {
+
+    setStudents(students.map((student) => student.id === e_Student.id ? e_Student : student))
+    console.log(`Ai editat studentul cu id-ul ${e_Student.id}`);
   }
 
   return (
@@ -63,8 +70,8 @@ function App() {
         <Route path="/" element={<Home/>} />
         <Route path="/about" element={<About/>}>
             <Route path="/about" element={<Table students={students} salutare={salutare} setEdit={setEdit}/>}/>
-            <Route path="/about/add" element={<FormStudents salutare={salutare} addStudent={addStudent}/>} />
-            <Route path="/about/edit/:id" element={<FormStudents salutare={salutare} setEdit={setEdit} edit={edit} editStudent={editStudent}/>}/>
+            <Route path="/about/add" element={<FormStudents salutare={salutare} setEdit={setEdit} edit={edit} addStudent={addStudent}/>} salutare={salutare} />
+          <Route path="/about/edit/:id" element={<FormStudents salutare={salutare} setEdit={setEdit} edit={edit} editStudent={editStudent}/>}/>
         </Route>
       </Routes>
 

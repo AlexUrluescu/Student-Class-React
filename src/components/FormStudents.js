@@ -1,5 +1,5 @@
 
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { useState, useEffect } from "react"
 
 const initialForm = 
@@ -11,7 +11,7 @@ const initialForm =
     }
 
 
-const FormStudents = ({addStudent, edit, setEdit, editStudent}) => {
+const FormStudents = ({addStudent, edit, setEdit, salutare, editStudent}) => {
 
     const navigate = useNavigate()
 
@@ -30,16 +30,14 @@ const FormStudents = ({addStudent, edit, setEdit, editStudent}) => {
     const handleSubmit = (e) => {
         e.preventDefault();
 
-        console.log("s-a trimis formularul");
-        console.log(form);
-
-        if(form.id === null){
+        if(edit === null){
             addStudent(form)
         }
 
         else{
             editStudent(form)
         }
+
 
         resetForm()
         navigate("/about")
@@ -58,9 +56,13 @@ const FormStudents = ({addStudent, edit, setEdit, editStudent}) => {
         setEdit(null)
     }
 
+
+    const handleSalutare = () => {
+        salutare()
+    }
+
     return(
         <div>
-            {edit ? <h2>Edit</h2> : <h2>Add</h2>}
             <form onSubmit={handleSubmit}>
                 <input onChange={handleChange} type="text" value={form.name} name="name" placeholder="Name" />
                 <input onChange={handleChange} type="text" value={form.last_name} name="last_name" placeholder="Last name" />
@@ -70,6 +72,10 @@ const FormStudents = ({addStudent, edit, setEdit, editStudent}) => {
                 <input type="submit" value="Send" />
 
             </form>
+
+            <button onClick={handleSalutare}>Hei</button>
+
+            <Link to="/about">Back</Link>
         </div>
     )
 }
